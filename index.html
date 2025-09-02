@@ -3,163 +3,163 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>لینک‌ها</title>
+  <title>لینک‌های سینا</title>
   <style>
-    :root {
-      --bg-primary: #1a0000;
-      --bg-secondary: #800000;
-      --card-bg: rgba(255, 255, 255, 0.05);
-      --text-primary: #ffffff;
-      --accent: #ff3333;
-      --shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-      --radius: 15px;
-      --transition: all 0.4s ease;
-      --glass-bg: rgba(255, 255, 255, 0.1);
-      --glass-border: rgba(255, 255, 255, 0.2);
+    :root{
+      --bg1:#0d0d0f;
+      --bg2:#e60026;
+      --card:#141418cc;
+      --text:#f5f6f7;
+      --muted:#c8c8c8;
+      --radius:22px;
+      --blur:14px;
+      --gradient:linear-gradient(135deg, #ff3131, #ff7a18);
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Vazirmatn, Inter, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1000px 800px at 20% 20%, rgba(255,60,60,.35), transparent 60%),
+        radial-gradient(900px 600px at 80% 90%, rgba(255,0,0,.25), transparent 60%),
+        linear-gradient(160deg, var(--bg2) 0%, var(--bg1) 65%, #000 100%);
+      background-attachment: fixed;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
     }
-    body {
-      font-family: 'Vazirmatn', 'Inter', sans-serif;
-      background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--text-primary);
+    .container{
+      width:min(520px, 92vw);
+      background:var(--card);
+      backdrop-filter: blur(var(--blur));
+      border:1px solid #ffffff1a;
+      border-radius:var(--radius);
+      box-shadow:0 10px 35px #0009;
+      padding:34px;
+      animation: fadeIn 1s ease;
     }
-    .container {
-      width: 100%;
-      max-width: 450px;
-      background: var(--card-bg);
-      padding: 2.5rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      animation: fadeIn 0.6s ease-out;
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(10px);
+    h1{
+      margin:0 0 24px;
+      font-size:28px;
+      text-align:center;
+      background:var(--gradient);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
-    h1 {
-      text-align: center;
-      font-size: 2rem;
-      color: var(--accent);
-      margin-bottom: 2rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      position: relative;
+    .links{display:grid;gap:16px}
+    .btn{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:16px 20px;
+      background:#1a1a1bcc;
+      border:1px solid #ffffff20;
+      border-radius:18px;
+      text-decoration:none;
+      color:var(--text);
+      font-size:17px;
+      font-weight:500;
+      transition:all .25s ease;
+      position:relative;
+      overflow:hidden;
     }
-    h1::after {
-      content: "❓";
-      font-size: 1.2rem;
-      margin-left: 0.5rem;
-      vertical-align: middle;
+    .btn::before{
+      content:"";
+      position:absolute;
+      top:0;left:0;
+      width:100%;height:100%;
+      background:var(--gradient);
+      opacity:0;
+      transition:.3s;
+      z-index:0;
     }
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+    .btn:hover::before{opacity:.15}
+    .btn:hover{
+      transform:translateY(-3px) scale(1.02);
+      box-shadow:0 8px 22px #ff2a2a55;
+      border-color:#ff4a4a99;
     }
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius);
-      text-decoration: none;
-      color: var(--text-primary);
-      font-size: 1.1rem;
-      font-weight: 600;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(5px);
+    .icon{
+      width:38px;height:38px;
+      display:grid;place-items:center;
+      border-radius:50%;
+      background:#2a2a2b;
+      flex-shrink:0;
+      z-index:1;
     }
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255, 51, 51, 0.2), transparent);
-      animation: glow 3s infinite;
-    }
-    .btn:hover {
-      transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 10px 30px rgba(255, 51, 51, 0.3);
-      background: rgba(255, 255, 255, 0.15);
-    }
-    .btn .icon {
-      width: 2.2rem;
-      height: 2.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 50%;
-      transition: var(--transition);
-      backdrop-filter: blur(5px);
-    }
-    .btn .icon svg {
-      width: 1.3rem;
-      height: 1.3rem;
-    }
-    .btn span {
-      flex-grow: 1;
-      text-align: right;
-      padding-right: 1.2rem;
-    }
+    .btn span{z-index:1;position:relative}
 
     /* رنگ خاص هر شبکه */
-    .tg .icon { background: rgba(34, 158, 217, 0.2); }
-    .ig .icon { background: rgba(225, 48, 108, 0.2); }
-    .yt .icon { background: rgba(255, 0, 0, 0.2); }
+    .tg .icon{background:#229ED9;}
+    .ig .icon{background:#e1306c;}
+    .yt .icon{background:#ff0000;}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    @keyframes glow {
-      0% { left: -100%; }
-      50% { left: 100%; }
-      100% { left: 100%; }
+    @keyframes fadeIn{
+      from{opacity:0; transform:translateY(20px);}
+      to{opacity:1; transform:translateY(0);}
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>کجا می‌خوای بری؟</h1>
+    <h1>لینک‌های من 😎🔥</h1>
     <div class="links">
       <!-- لینک تلگرام -->
       <a class="btn tg" href="https://t.me/Sinbytte" target="_blank">
-        <span>تلگرام</span>
         <div class="icon">
+          <!-- لوگوی تلگرام -->
           <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24" width="20" height="20">
-            <path d="M12 0C5.371 0 0 5.373 0 12c0 6.627 5.371 12 12 12s12-5.373 12-12C24 5.373 18.629 0 12 0zm5.642 8.319c-.194 2.048-1.034 7.012-1.463 9.295-.181.968-.537 1.292-.881 1.325-.75.069-1.319-.495-2.045-.969-1.138-.745-1.782-1.21-2.889-1.939-1.278-.85-.45-1.315.279-2.077.19-.198 3.482-3.193 3.548-3.465.008-.036.016-.171-.064-.242-.081-.072-.2-.048-.286-.028-.122.028-2.061 1.302-5.827 3.847-.551.378-1.049.563-1.496.552-.493-.011-1.443-.28-2.149-.511-.866-.281-1.553-.43-1.493-.905.031-.248.372-.503 1.022-.766 3.995-1.739 6.659-2.883 7.995-3.433 3.806-1.582 4.598-1.857 5.115-1.866.114-.002.369.026.535.16.14.112.182.263.2.37.018.106.043.349.027.537z"/>
+            <path d="M12 0C5.371 0 0 5.373 0 12c0 6.627 
+            5.371 12 12 12s12-5.373 12-12C24 5.373 
+            18.629 0 12 0zm5.642 8.319c-.194 2.048-1.034 
+            7.012-1.463 9.295-.181.968-.537 1.292-.881 
+            1.325-.75.069-1.319-.495-2.045-.969-1.138-.745-1.782-1.21-2.889-1.939-1.278-.85-.45-1.315.279-2.077.19-.198 
+            3.482-3.193 3.548-3.465.008-.036.016-.171-.064-.242-.081-.072-.2-.048-.286-.028-.122.028-2.061 
+            1.302-5.827 3.847-.551.378-1.049.563-1.496.552-.493-.011-1.443-.28-2.149-.511-.866-.281-1.553-.43-1.493-.905.031-.248.372-.503 
+            1.022-.766 3.995-1.739 6.659-2.883 7.995-3.433 
+            3.806-1.582 4.598-1.857 5.115-1.866.114-.002.369.026.535.16.14.112.182.263.2.37.018.106.043.349.027.537z"/>
           </svg>
         </div>
+        <span>تلگرام</span>
       </a>
 
       <!-- لینک اینستاگرام -->
-      <a class="btn ig" href="https://www.instagram.com/sinbyte" target="_blank">
-        <span>اینستاگرام</span>
+      <a class="btn ig" href="https://instagram.com/" target="_blank">
         <div class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="20" height="20" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.428.403a4.92 4.92 0 011.675 1.092 4.92 4.92 0 011.092 1.675c.163.458.349 1.258.403 2.428.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.403 2.428a4.92 4.92 0 01-1.092 1.675 4.92 4.92 0 01-1.675 1.092c-.458.163-1.258.349-2.428.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.428-.403a4.92 4.92 0 01-1.675-1.092 4.92 4.92 0 01-1.092-1.675c-.163-.458-.349-1.258-.403-2.428C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.403-2.428a4.92 4.92 0 011.092-1.675A4.92 4.92 0 015.403 2.636c.458-.163 1.258-.349 2.428-.403C9.097 2.175 9.477 2.163 12 2.163zm0 3.675a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 11-2.881 0 1.44 1.44 0 012.881 0z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="20" height="20" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 
+          1.97.24 2.428.403a4.92 4.92 0 011.675 1.092 4.92 
+          4.92 0 011.092 1.675c.163.458.349 1.258.403 
+          2.428.058 1.266.07 1.646.07 4.85s-.012 
+          3.584-.07 4.85c-.054 1.17-.24 1.97-.403 
+          2.428a4.92 4.92 0 01-1.092 1.675 4.92 4.92 
+          0 01-1.675 1.092c-.458.163-1.258.349-2.428.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.428-.403a4.92 
+          4.92 0 01-1.675-1.092 4.92 4.92 0 01-1.092-1.675c-.163-.458-.349-1.258-.403-2.428C2.175 
+          15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.403-2.428a4.92 4.92 
+          0 011.092-1.675A4.92 4.92 0 015.403 2.636c.458-.163 1.258-.349 2.428-.403C9.097 
+          2.175 9.477 2.163 12 2.163zm0 3.675a6.162 
+          6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 
+          10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 
+          1.44 0 11-2.881 0 1.44 1.44 0 012.881 0z"/></svg>
         </div>
+        <span>اینستاگرام</span>
       </a>
 
       <!-- لینک یوتیوب -->
-      <a class="btn yt" href="https://www.youtube.com/@dclxviart" target="_blank">
-        <span>یوتیوب</span>
+      <a class="btn yt" href="https://youtube.com/" target="_blank">
         <div class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="22" height="22" viewBox="0 0 24 24"><path d="M23.498 6.186a2.974 2.974 0 00-2.093-2.106C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.405.58a2.974 2.974 0 00-2.093 2.106A31.65 31.65 0 000 12a31.65 31.65 0 00.502 5.814 2.974 2.974 0 002.093 2.106C4.495 20.5 12 20.5 12 20.5s7.505 0 9.405-.58a2.974 2.974 0 002.093-2.106A31.65 31.65 0 0024 12a31.65 31.65 0 00-.502-5.814zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="22" height="22" viewBox="0 0 24 24"><path d="M23.498 6.186a2.974 
+          2.974 0 00-2.093-2.106C19.505 3.5 12 
+          3.5 12 3.5s-7.505 0-9.405.58a2.974 
+          2.974 0 00-2.093 2.106A31.65 31.65 
+          0 000 12a31.65 31.65 0 00.502 
+          5.814 2.974 2.974 0 002.093 2.106C4.495 
+          20.5 12 20.5 12 20.5s7.505 0 9.405-.58a2.974 
+          2.974 0 002.093-2.106A31.65 31.65 0 0024 
+          12a31.65 31.65 0 00-.502-5.814zM9.75 
+          15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
         </div>
+        <span>یوتیوب</span>
       </a>
     </div>
   </div>
